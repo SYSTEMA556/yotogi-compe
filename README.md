@@ -23,12 +23,13 @@ compe/
 │  ├─ main.go       API・匿名化・投票・ランキング
 │  ├─ store.go      データモデル・JSONファイル保存・パスワードハッシュ(PBKDF2)
 │  └─ dist/         ← フロントのビルド結果（バイナリに埋め込まれる）
-└─ web/             SolidJS + Vite（ハッシュルーティング：/#/contests/...）
+└─ web/             SolidJS + Vite + Tailwind CSS v4（ハッシュルーティング：/#/contests/...）
    └─ src/
       ├─ pages.tsx      一覧・コンペ・投稿・閲覧・編集・管理の各画面
       ├─ EntryForm.tsx  投稿フォーム（入力 → プレビュー → 投稿）
       ├─ components.tsx 期間タイムライン・カウントダウン・作品カード・タグ入力など
       ├─ markup.ts      ルビ・傍点記法
+      ├─ style.css      見た目（Tailwind の @theme で色を定義、部品は @apply でまとめる）
       └─ api.ts         API 呼び出し・サイト名
 ```
 

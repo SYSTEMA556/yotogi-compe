@@ -9,7 +9,7 @@ function Layout(p: RouteSectionProps) {
   return (
     <>
       <Header />
-      <main class="container">{p.children}</main>
+      <main class="page">{p.children}</main>
       <Footer />
     </>
   );

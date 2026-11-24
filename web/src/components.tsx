@@ -3,22 +3,35 @@ import { createSignal, For, onCleanup, Show, type JSX } from "solid-js";
 import { api, fmtDate, PHASE_LABEL, SITE_NAME, type Contest, type Entry, type Phase } from "./api";
 import { MARKUP_HELP, renderMarkup } from "./markup";
 
+// ヘッダーとフッターは「Tailwind のクラスを直接書く」書き方の見本。
+// ほかの部品は style.css の中で @apply を使ってまとめている。
 export function Header() {
   return (
-    <header class="site-header">
-      <A href="/" class="site-title">{SITE_NAME}</A>
-      <nav>
-        <A href="/" end>コンペ一覧</A>
-        <A href="/admin">管理</A>
-      </nav>
+    <header class="sticky top-0 z-20 border-b border-gold/40 bg-gradient-to-r from-night via-night-2 to-crimson-dark shadow-lg shadow-black/30">
+      <div class="mx-auto flex max-w-3xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
+        <A href="/" class="group flex items-center gap-2">
+          <span class="moon" aria-hidden="true" />
+          <span class="font-serif text-xl font-black tracking-wider text-gold drop-shadow-[0_0_8px_rgba(212,175,55,.5)] transition group-hover:text-gold-light">
+            {SITE_NAME}
+          </span>
+        </A>
+        <nav class="flex gap-5 text-sm font-bold">
+          <A href="/" end class="nav-link">
+            コンペ一覧
+          </A>
+          <A href="/admin" class="nav-link">
+            管理
+          </A>
+        </nav>
+      </div>
     </header>
   );
 }
 
 export function Footer() {
   return (
-    <footer class="site-footer">
-      © {new Date().getFullYear()} {SITE_NAME}
+    <footer class="mt-16 bg-night py-8 text-center text-sm text-white/60">
+      <div class="mb-2 font-serif tracking-[0.3em] text-gold/80">― ✦ ―</div>© {new Date().getFullYear()} {SITE_NAME}
     </footer>
   );
 }
