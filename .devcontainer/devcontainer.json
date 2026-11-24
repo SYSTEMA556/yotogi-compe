@@ -1,6 +1,6 @@
 {
   "name": "yotogi-compe",
-  "image": "mcr.microsoft.com/devcontainers/go:1-1.24-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/go:1",
   "features": {
     "ghcr.io/devcontainers/features/node:1": { "version": "22" }
   },
@@ -8,11 +8,10 @@
     "ADMIN_TOKEN": "dev-admin",
     "HASH_SECRET": "dev-secret"
   },
-  "postCreateCommand": "cd web && npm install",
-  "forwardPorts": [8080, 5173],
+  "postCreateCommand": "cd web && npm install && npm run build",
+  "forwardPorts": [8080],
   "portsAttributes": {
-    "8080": { "label": "コンペサイト", "onAutoForward": "openBrowser" },
-    "5173": { "label": "開発用画面（npm run dev）", "onAutoForward": "notify" }
+    "8080": { "label": "コンペサイト", "onAutoForward": "openBrowser" }
   },
   "customizations": {
     "vscode": {

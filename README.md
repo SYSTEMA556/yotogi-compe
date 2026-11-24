@@ -60,6 +60,15 @@ ADMIN_TOKEN=好きな長い文字列 HASH_SECRET=別の長い文字列 go run . 
 
 本番は `go build -o compe .` でできた1ファイルを置いて実行するだけです。
 
+### GitHub Codespaces（おすすめ：パソコンに何も入れずに動かす）
+
+1. GitHub のこのリポジトリで「Code」→「Codespaces」→「Create codespace on main」
+2. 数分待つと、ブラウザの中に VS Code が開く（Go・Node.js・部品の取り込みとビルドは自動）
+3. 下のターミナルで `bash run.sh`
+4. 右下に出る「ブラウザーで開く」を押す（または「ポート」タブの 8080 の地球儀アイコン）。管理トークンは `dev-admin`
+
+使い終わったら codespace を止める（放っておいても30分で自動停止）。無料枠は個人アカウントで月120コア時間＝標準の2コアで約60時間。使わない codespace は削除すると容量の無料枠も減らない。
+
 ### Windows（PowerShell）
 
 いちばん簡単なのは、フォルダの `run.cmd` をダブルクリックするか、PowerShell で `.\run.cmd` と打つ方法です（管理トークンは `dev-admin`）。
