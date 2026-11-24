@@ -47,6 +47,25 @@ ADMIN_TOKEN=好きな長い文字列 HASH_SECRET=別の長い文字列 go run . 
 
 本番は `go build -o compe .` でできた1ファイルを置いて実行するだけです。
 
+### Windows（PowerShell）
+
+いちばん簡単なのは、フォルダの `run.cmd` をダブルクリックするか、PowerShell で `.\run.cmd` と打つ方法です（管理トークンは `dev-admin`）。
+
+手で打つ場合、PowerShell では環境変数の書き方が違います。
+
+```powershell
+cd web
+npm.cmd install
+npm.cmd run build
+cd ..\server
+$env:ADMIN_TOKEN = "dev-admin"
+$env:HASH_SECRET = "dev-secret"
+go run . -demo
+```
+
+- `npm` ではなく `npm.cmd` と打つのは、「このシステムではスクリプトの実行が無効になっている」というエラーを避けるためです
+- Windows PowerShell 5.1 では `&&` が使えないので、1行ずつ打ちます
+
 ### 開発中（画面を即時反映したいとき）
 
 ```bash
