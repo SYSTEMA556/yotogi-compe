@@ -1,0 +1,7 @@
+web/node_modules/
+server/data/
+server/compe
+server/dist/*
+!server/dist/.gitkeep
+*.tmp
+.env
